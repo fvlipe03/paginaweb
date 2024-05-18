@@ -12,9 +12,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="styles.css">
     
+       <!-- Script para el reloj -->
+       <script>
+        function actualizarReloj() {
+            var ahora = new Date();
+            var horas = ahora.getHours();
+            var minutos = ahora.getMinutes();
+            var segundos = ahora.getSeconds();
+
+            // Añadir cero al principio de los números menores de 10
+            if (horas < 10) horas = "0" + horas;
+            if (minutos < 10) minutos = "0" + minutos;
+            if (segundos < 10) segundos = "0" + segundos;
+
+            var horaActual = horas + ":" + minutos + ":" + segundos;
+            document.getElementById("reloj").textContent = horaActual;
+        }
+
+        // Actualizar el reloj cada segundo
+        setInterval(actualizarReloj, 1000);
+        // Llamar a la función inmediatamente para mostrar la hora actual sin esperar un segundo
+        document.addEventListener("DOMContentLoaded", actualizarReloj);
+    </script>
 </head>
 
 <body>
